@@ -19,9 +19,9 @@ public class AccountController {
 	private UserService userService;
 	
 	
-	@GetMapping("account/{userId}")
+	@GetMapping("/user/account/{userId}")
 	public ResponseEntity<?> getByUserId(@PathVariable Integer userId){
-		return ResponseEntity.ok(accountService.getByUserId(userId));
+		return ResponseEntity.ok(userService.getAccount(userId));
 	}
 	
 //	@PostMapping("account/{userId}")

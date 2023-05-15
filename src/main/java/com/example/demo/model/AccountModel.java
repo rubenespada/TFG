@@ -17,7 +17,7 @@ public class AccountModel {
 	private Float saldo;
 	private LocalDate fechaCad;
 	private Integer pin;
-	@OneToOne()
+	@OneToOne(mappedBy = "cuenta")
 	private UserModel usuario;
 	
 

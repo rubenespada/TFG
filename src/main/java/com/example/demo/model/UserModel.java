@@ -3,6 +3,7 @@ package com.example.demo.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
@@ -17,6 +18,7 @@ public class UserModel {
 	private String apellidos;
 	private String email;
 	private String password;
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "usuario")
+    @OneToOne(cascade = CascadeType.ALL ,orphanRemoval = true)
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
 	private AccountModel cuenta;
 }

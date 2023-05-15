@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.AccountDto;
+import com.example.demo.dto.AltaUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.model.AccountModel;
 import com.example.demo.model.UserModel;
@@ -31,6 +33,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private AccountRepository accountRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+	
 	@Override
 	public UserDto getUserById(Integer id) {
 		return  userMapper.toDto(userRepository.findById(id).orElse(null));
@@ -42,9 +47,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDto createUser(UserDto user) {
+	public UserDto createUser(AltaUserDto user) {
+		user.setPassword(encoder.encode(user.getPassword()));
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(user)));
-		
 	}
 
 	@Override
@@ -75,10 +80,8 @@ public class UserServiceImpl implements UserService {
 	public AccountDto setAccount(AccountDto account, Integer userId) {
 		UserModel user = userRepository.findById(userId).orElse(null);
 		if(user != null) {
-			
-			AccountModel accountModel = accountMapper.toEntity(account);
-			accountModel.setUsuario(user);
-			accountRepository.save(accountModel);
+			user.setCuenta(accountMapper.toEntity(account));
+			userRepository.save(user);
 			return account;
 		}else {
 			return null;
@@ -87,6 +90,20 @@ public class UserServiceImpl implements UserService {
 	
 	public boolean existsById(Integer id) {
 	return userRepository.existsById(id);
+	}
+	
+	public AccountDto getAccount(Integer userId) {
+		UserModel user = userRepository.findById(userId).orElse(null);
+		if(user != null) {
+			AccountModel account = user.getCuenta();
+			if(account != null) {
+				return accountMapper.toDto(account);
+			}else {
+				return null;
+			}
+		}else {
+			return null;
+		}
 	}
 
 }
