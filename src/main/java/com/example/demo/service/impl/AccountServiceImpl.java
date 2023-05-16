@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.AccountDto;
+import com.example.demo.model.AccountModel;
 import com.example.demo.model.UserModel;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.UserRepository;
@@ -51,6 +52,17 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void deleteAccount(Integer id) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyBalance(Integer userId, Float saldo) {
+		UserModel user = userRepository.findById(userId).orElse(null);
+		if(user != null) {
+			AccountModel account = user.getCuenta();
+			account.setSaldo(account.getSaldo() + saldo);
+			accountRepository.save(account);
+		}
 		
 	}
 	

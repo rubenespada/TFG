@@ -16,6 +16,8 @@ public interface AccountService {
 	
 	public void deleteAccount(Integer id);
 	
+	public void modifyBalance(Integer userId,Float saldo);
+	
 	
 
 }
