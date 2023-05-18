@@ -6,14 +6,14 @@ import java.util.Collections;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.proyecto.springboot.model.Usuario;
+import com.example.demo.model.UserModel;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class UserDetailsImpl implements UserDetails{
 	
-	private final Usuario usuario;
+	private final UserModel usuario;
 	
 
 

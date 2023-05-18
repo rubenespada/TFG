@@ -6,20 +6,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.proyecto.springboot.model.Usuario;
-import com.proyecto.springboot.repository.UsuarioRepository;
+import com.example.demo.model.UserModel;
+import com.example.demo.repository.UserRepository;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService{
 	
 	
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UserRepository usuarioRepository;
 	
 
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		Usuario usuario = usuarioRepository.findOneByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Email no encontrado"));
+		UserModel usuario = usuarioRepository.findOneByEmail(email);
 		return new UserDetailsImpl(usuario); 
 	}
 	 

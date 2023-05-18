@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import lombok.AllArgsConstructor;
-@Configuration
+//@Configuration
 @AllArgsConstructor
 public class WebSecurityConfig {
 	
