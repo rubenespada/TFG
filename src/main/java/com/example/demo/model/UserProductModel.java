@@ -20,11 +20,11 @@ public class UserProductModel {
 	private Integer id;
 	
 	@ManyToOne
-	@JoinColumn(name="idProduct" ,insertable = false, updatable=false)
+	@JoinColumn(name="idProduct" , updatable=false)
 	private ProductModel product;
 	
 	@ManyToOne
-	@JoinColumn(name="idUser" ,insertable = false, updatable=false)
+	@JoinColumn(name="idUser" , updatable=false)
 	private UserModel shopUser;
 	
 	private Integer cantidad;
