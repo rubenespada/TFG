@@ -22,6 +22,7 @@ public class TokenUtils {
 		
 		Map<String, Object> extra = new HashMap();
 		extra.put("admin", rol);
+		extra.put("nombre", nombre);
 		
 		return Jwts.builder()
 				.setSubject(email)
