@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import lombok.AllArgsConstructor;
-//@Configuration
+@Configuration
 @AllArgsConstructor
 public class WebSecurityConfig {
 	
@@ -36,7 +36,7 @@ public class WebSecurityConfig {
 		return http
 				.csrf().disable()
 				.cors().and()
-				.authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll()
+				.authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll().and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/v1/user").permitAll()
 				.anyRequest()
 				.authenticated()
 				.and()

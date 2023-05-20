@@ -56,6 +56,10 @@ public class UserDetailsImpl implements UserDetails{
 		return usuario.getNombre();
 	}
 	
+	public boolean isAdmin() {
+		return usuario.isAdmin();
+	}
+	
 	public void comparaString(String sisoy, String... searchArray) {
 		
 	}

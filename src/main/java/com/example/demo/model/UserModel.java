@@ -26,6 +26,8 @@ public class UserModel {
 	private String apellidos;
 	private String email;
 	private String password;
+	private boolean admin;
+	
     @OneToOne(cascade = CascadeType.ALL ,orphanRemoval = true)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
 	private AccountModel cuenta;

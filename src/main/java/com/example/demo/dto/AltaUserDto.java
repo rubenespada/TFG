@@ -10,5 +10,7 @@ public class AltaUserDto {
 	private String apellidos;
 	private String email;
 	private String password;
+	private boolean admin;
+
 
 }
