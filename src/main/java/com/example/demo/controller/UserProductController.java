@@ -17,14 +17,11 @@ public class UserProductController {
 	@Autowired
 	private UserProductService userProductService;
 
-	@PostMapping("userProduct")
+	@PostMapping("/userProduct")
 	public ResponseEntity<?> createUserProduct(@RequestBody UserProductDto userProduct){
 		UserProductDto result = userProductService.createUserProduct(userProduct);
-		if(result != null) {
-			return ResponseEntity.ok(result);
-		}else {
-			return ResponseEntity.ok(null);
-		}
+		return ResponseEntity.ok(result);
+
 	}
 
 }

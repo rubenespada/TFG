@@ -56,6 +56,10 @@ public class UserDetailsImpl implements UserDetails{
 		return usuario.getNombre();
 	}
 	
+	public String getApellido() {
+		return usuario.getApellidos();
+	}
+	
 	public boolean isAdmin() {
 		return usuario.isAdmin();
 	}
