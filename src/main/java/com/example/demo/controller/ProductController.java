@@ -13,19 +13,35 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.ProductDto;
 import com.example.demo.service.ProductService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProductController.
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class ProductController {
 	
+	/** The product service. */
 	@Autowired
 	private ProductService productService;
 	
+	/**
+	 * Gets the all.
+	 *
+	 * @return the all
+	 */
 	@GetMapping("/product")
 	public ResponseEntity<?> getAll(){
 		List<ProductDto> result = productService.getAll();
 		return ResponseEntity.ok(result);
 	}
 
+	/**
+	 * Creates the product.
+	 *
+	 * @param product the product
+	 * @return the response entity
+	 */
 	@PostMapping("/product")
 	public ResponseEntity<?> createProduct(@RequestBody ProductDto product){
 		ProductDto result = productService.createProduct(product);

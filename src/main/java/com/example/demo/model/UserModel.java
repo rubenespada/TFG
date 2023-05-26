@@ -15,23 +15,44 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
+// TODO: Auto-generated Javadoc
+/**
+ * Class UserModel.
+ */
 @Entity(name="ShopUser")
+
+/**
+ * Instantiates a new user model.
+ */
 @Data
 public class UserModel {
 
+	/** Id del usuario. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	/** Nombre del usuario. */
 	private String nombre;
+	
+	/** Apellidos del usuario. */
 	private String apellidos;
+	
+	/** Email del usuario. */
 	private String email;
+	
+	/** Contraseña del usuario. */
 	private String password;
+	
+	/** Indica si el usuario es admin o no. */
 	private boolean admin;
 	
+    /** The cuenta. */
     @OneToOne(cascade = CascadeType.ALL ,orphanRemoval = true)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
 	private AccountModel cuenta;
     
+	/** The user product. */
 	@OneToMany(mappedBy="shopUser")
 	@JsonIgnore
 	private List<UserProductModel> userProduct;

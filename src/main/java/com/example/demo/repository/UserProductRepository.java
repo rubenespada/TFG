@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.UserProductModel;
 
+/**
+ * The Interface UserProductRepository.
+ */
 @Repository
 public interface UserProductRepository extends JpaRepository<UserProductModel,Integer> {
 
