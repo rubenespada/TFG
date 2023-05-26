@@ -41,6 +41,8 @@ public class ProductModel {
 	/** Precio del producto. */
 	private Float precio;
 	
+	private String imagen;
+	
 	/** Relación con UserProductModel (compras). */
 	@OneToMany(mappedBy="product")
 	@JsonIgnore

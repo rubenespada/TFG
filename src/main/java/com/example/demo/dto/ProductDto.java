@@ -23,4 +23,6 @@ public class ProductDto {
 	
 	/** Precio por unidad del producto. */
 	private Float precio;
+	
+	private String imagen;
 }
