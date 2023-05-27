@@ -21,6 +21,10 @@ public class UserDetailsImpl implements UserDetails{
 		// TODO Auto-generated method stub
 		return Collections.emptyList();
 	}
+	
+	public Integer getId() {
+		return usuario.getId();
+	}
 
 	public String getPassword() {
 		// TODO Auto-generated method stub

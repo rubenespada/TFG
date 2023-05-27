@@ -16,11 +16,12 @@ public class TokenUtils {
 	private final static String ACCESS_TOKEN_SECRET = "4quhq8LrEBfYcaRHxhdb9zURb2rf8e7Ud";
 	private final static Long ACCES_TOKEN_VALIDITY_SECONDS = 2592000L;
 	
-	public static String createToken(String email,String nombre, boolean rol) {
+	public static String createToken(String email,Integer id,String nombre, boolean rol) {
 		long expirationTime = ACCES_TOKEN_VALIDITY_SECONDS * 1000;
 		Date expirationDate = new Date(System.currentTimeMillis() + expirationTime);
 		
 		Map<String, Object> extra = new HashMap();
+		extra.put("id",id);
 		extra.put("admin", rol);
 		extra.put("nombre", nombre);
 		
