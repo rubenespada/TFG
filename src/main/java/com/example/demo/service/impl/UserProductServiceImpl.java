@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,9 +50,13 @@ public class UserProductServiceImpl implements UserProductService {
 	}
 
 	@Override
-	public List<UserProductDto> getAllByUser() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<UserProductDto> getAllByUser(Integer id) {
+		List<UserProductModel> purchases = userProductRepository.findByShopUserId(id);
+		if(!purchases.isEmpty()) {
+			return purchases.stream().map(userProductMapper::toDto).collect(Collectors.toList());
+		}else {
+			return null;
+		}
 	}
 
 	@Override
@@ -63,8 +68,15 @@ public class UserProductServiceImpl implements UserProductService {
 			Float coste = product.getPrecio() * userProduct.getCantidad();
 			if(cuenta != null && cuenta.getSaldo() >= coste) {
 			UserProductModel entitySave = userProductMapper.toEntity(userProduct);
+			
+			//Ajustar saldo de la cuenta
 			cuenta.setSaldo(cuenta.getSaldo() - coste);
 			accountRepository.save(cuenta);
+			
+			//Ajusta stock del producto
+			product.setStock(product.getStock() - userProduct.getCantidad());
+			productRepository.save(product);
+			
 			entitySave.setCoste(product.getPrecio() * userProduct.getCantidad());
 			entitySave.setFecha(LocalDate.now());
 			entitySave.setProduct(product);

@@ -10,7 +10,7 @@ public interface UserProductService {
 	
 	public List<UserProductDto> getAllByProduct();
 	
-	public List<UserProductDto> getAllByUser();
+	public List<UserProductDto> getAllByUser(Integer id);
 	
 	public UserProductDto createUserProduct(UserProductDto userProduct);
 
