@@ -31,14 +31,16 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.toDto(productRepository.save(productMapper.toEntity(product)));
 	}
 	
-	public ProductDto updateProduct(ProductDto product) {
-		ProductModel productModel = productRepository.findById(product.getId()).orElse(null);
+	public ProductDto updateProduct(Integer id,ProductDto product) {
+		ProductModel productModel = productRepository.findById(id).orElse(null);
 		if(productModel != null) {
 			productModel.setNombre(product.getNombre());
 			productModel.setDescripcion(product.getDescripcion());
 			productModel.setPrecio(product.getPrecio());
 			productModel.setStock(product.getStock());
+			if(product.getImagen() != null) {
 			productModel.setImagen(product.getImagen());
+			}
 			productRepository.save(productModel);
 			return product;
 		}else {
@@ -46,5 +48,18 @@ public class ProductServiceImpl implements ProductService {
 		}
 		
 	}
+
+	@Override
+	public void deleteProduct(Integer id) {
+		ProductModel productModel = productRepository.findById(id).orElse(null);
+		if(productModel != null) {
+			productRepository.delete(productModel);
+		}else {
+			
+		}
+
+	}
+
+
 
 }

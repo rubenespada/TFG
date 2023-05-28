@@ -9,5 +9,9 @@ public interface ProductService {
 	public List<ProductDto> getAll();
 	
 	public ProductDto createProduct(ProductDto product);
+
+	public ProductDto updateProduct(Integer id, ProductDto product);
+	
+	public void deleteProduct(Integer id);
 	
 }
