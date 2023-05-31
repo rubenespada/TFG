@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class Config {
 	
 	/**
-	 * Model mapper.
+	 * Configuración Bean Model mapper.
 	 *
 	 * @return the model mapper
 	 */
@@ -19,7 +19,7 @@ public class Config {
 	}
 	
 	/**
-	 * Encoder.
+	 * Configuración Bean PasswordEncoder.
 	 *
 	 * @return the b crypt password encoder
 	 */

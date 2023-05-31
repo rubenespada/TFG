@@ -21,17 +21,17 @@ import com.example.demo.service.UserService;
 @RequestMapping("/api/v1")
 public class AccountController {
 	
-	/** The account service. */
+	/** Account service. */
 	@Autowired
 	private AccountService accountService;
 	
-	/** The user service. */
+	/** User service. */
 	@Autowired
 	private UserService userService;
 	
 	
 	/**
-	 * Gets the by user id.
+	 * Obtiene el usuario por Id.
 	 *
 	 * @param userId the user id
 	 * @return the by user id
@@ -42,7 +42,7 @@ public class AccountController {
 	}
 	
 	/**
-	 * Modify balance.
+	 * Modifica el saldo de una cuenta mediante el id del usuario al que está asociado.
 	 *
 	 * @param userId the user id
 	 * @param saldo the saldo
@@ -54,11 +54,6 @@ public class AccountController {
 		return ResponseEntity.ok("Saldo modificado");
 	}
 	
-//	@PostMapping("account/{userId}")
-//	public ResponseEntity<?> createAccount(@PathVariable Integer userId, @RequestBody AccountDto account){
-//		if(userService.existsById(userId)) {
-//			
-//		}
-//	}
+
 
 }

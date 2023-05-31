@@ -14,28 +14,52 @@ import com.example.demo.repository.UserProductRepository;
 import com.example.demo.service.ProductService;
 import com.example.demo.util.ProductMapper;
 
+/**
+ * Implementación del servicio de productos.
+ */
 @Service
 public class ProductServiceImpl implements ProductService {
 
+	/** Acceso al bean del Repositorio de producto. */
 	@Autowired
 	private ProductRepository productRepository;
 
+	/** Acceso al bean del Repositorio de userProduct(Compras). */
 	@Autowired
 	private UserProductRepository userProductRepository;
 
+	/** Acceso al bean del mapper de producto. */
 	@Autowired
 	private ProductMapper productMapper;
 
+	/**
+	 * Obtiene todos los productos.
+	 *
+	 * @return the all
+	 */
 	@Override
 	public List<ProductDto> getAll() {
 		return productRepository.findAll().stream().map(productMapper::toDto).collect(Collectors.toList());
 	}
 
+	/**
+	 * Crea el producto.
+	 *
+	 * @param product
+	 * @return ProductDto
+	 */
 	@Override
 	public ProductDto createProduct(ProductDto product) {
 		return productMapper.toDto(productRepository.save(productMapper.toEntity(product)));
 	}
 
+	/**
+	 * Modifica el producto.
+	 *
+	 * @param id
+	 * @param product
+	 * @return ProductDto
+	 */
 	public ProductDto updateProduct(Integer id, ProductDto product) {
 		ProductModel productModel = productRepository.findById(id).orElse(null);
 		if (productModel != null) {
@@ -54,6 +78,12 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
+	/**
+	 * Elimina el producto en caso de que no exista ninguna compra de este.
+	 *
+	 * @param id
+	 * @throws InvalidDeleteProductException
+	 */
 	@Override
 	public void deleteProduct(Integer id) throws InvalidDeleteProductException{
 		ProductModel productModel = productRepository.findById(id).orElse(null);

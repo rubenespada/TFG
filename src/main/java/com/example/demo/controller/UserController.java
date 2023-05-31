@@ -31,7 +31,7 @@ public class UserController {
 	private UserService userService;
 	
 	/**
-	 * Gets the user.
+	 * Recupera el usuario meidante el id.
 	 *
 	 * @param id the id
 	 * @return the user
@@ -43,7 +43,7 @@ public class UserController {
 	}
 	
 	/**
-	 * Gets the all.
+	 * Recupera todos los usuarios.
 	 *
 	 * @return the all
 	 */
@@ -54,7 +54,7 @@ public class UserController {
 	}
 	
 	/**
-	 * Adds the user.
+	 * Crea un usuario.
 	 *
 	 * @param user the user
 	 * @return the response entity
@@ -66,7 +66,7 @@ public class UserController {
 	}
 	
 	/**
-	 * Update user.
+	 * Modifica un usuario mediante un cuerpo con los nuevos datos y el id para identificarlo.
 	 *
 	 * @param id the id
 	 * @param user the user
@@ -81,7 +81,7 @@ public class UserController {
 	
 	
 	/**
-	 * Delete user.
+	 * Elimina un usuario.
 	 *
 	 * @param id the id
 	 * @return the response entity
@@ -93,7 +93,7 @@ public class UserController {
 	
 	
 	/**
-	 * Sets the user account.
+	 * Asgina una nueva cuenta al usuario.
 	 *
 	 * @param id the id
 	 * @param account the account

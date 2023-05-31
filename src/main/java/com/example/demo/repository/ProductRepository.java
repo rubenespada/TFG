@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.ProductModel;
 
 /**
- * The Interface ProductRepository.
+ * Repositorio de los productos.
  */
 @Repository
 public interface ProductRepository extends JpaRepository<ProductModel, Integer> {

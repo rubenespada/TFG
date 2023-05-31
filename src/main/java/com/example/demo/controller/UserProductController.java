@@ -27,7 +27,7 @@ public class UserProductController {
 	private UserProductService userProductService;
 
 	/**
-	 * Creates the user product.
+	 * Realiza una compra y la guarda asginada a un usuario y un producto.
 	 *
 	 * @param userProduct the user product
 	 * @return the response entity
@@ -39,6 +39,11 @@ public class UserProductController {
 
 	}
 	
+	/**
+	 * Recupera todos las compras de un usuario
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/userProduct/user/{id}")
 	public ResponseEntity<?> getAllByUser(@PathVariable Integer id){
 		List<UserProductDto> result = userProductService.getAllByUser(id);

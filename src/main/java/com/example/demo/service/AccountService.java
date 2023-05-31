@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.example.demo.dto.AccountDto;
 
+/**
+ * Interfaz del servicio de cuentas
+ * @author ruben
+ *
+ */
 public interface AccountService {
 	
 	public AccountDto getAccountById(Integer id);

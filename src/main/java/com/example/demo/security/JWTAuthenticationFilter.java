@@ -13,8 +13,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Clase que autentifica a los usuarios de la aplicación
+ * @author ruben
+ *
+ */
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
+	
+	/**
+	 *Este método comprueba que el login sea correcto
+	 */
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
 
 		AuthCredentials authCredentials = new AuthCredentials();
@@ -31,7 +40,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		return getAuthenticationManager().authenticate(usernamePAT);
 
 	}
+	
+	
 
+	/**
+	 *Una vez el login sea correcto, este método se encarga de reenviar de vuelta el token de acceso para las peticiones de la aplicación.
+	 */
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authResult) throws IOException, ServletException {
 

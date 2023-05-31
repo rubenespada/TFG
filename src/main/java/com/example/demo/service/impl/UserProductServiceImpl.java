@@ -19,36 +19,61 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserProductService;
 import com.example.demo.util.UserProductMapper;
 
+// TODO: Auto-generated Javadoc
+/**
+ * Implementación del servicio de userProduct.
+ */
 @Service
 public class UserProductServiceImpl implements UserProductService {
 	
+	/** Acceso al bean del Repositorio de userProduct(Compra). */
 	@Autowired
 	private UserProductRepository userProductRepository;
 	
+	/** Acceso al bean del Repositorio de cuenta. */
 	@Autowired
 	private AccountRepository accountRepository;
 	
+	/** Acceso al bean del Repositorio de usuario. */
 	@Autowired
 	private UserRepository userRepository;
 	
+	/** Acceso al bean del Repositorio de producto. */
 	@Autowired
 	private ProductRepository productRepository;
 	
+	/** Acceso al bean del mapper de userProduct(Compra). */
 	@Autowired
 	private UserProductMapper userProductMapper;
 
+	/**
+	 * Recupera todas las compras.
+	 *
+	 * @return the all
+	 */
 	@Override
 	public List<UserProductDto> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Recupera todas las compras de un producto
+	 *
+	 * @return the all by product
+	 */
 	@Override
 	public List<UserProductDto> getAllByProduct() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Recupera todas las compras de un usuario.
+	 *
+	 * @param id
+	 * @return List<UserProductDto>
+	 */
 	@Override
 	public List<UserProductDto> getAllByUser(Integer id) {
 		List<UserProductModel> purchases = userProductRepository.findByShopUserId(id);
@@ -59,6 +84,12 @@ public class UserProductServiceImpl implements UserProductService {
 		}
 	}
 
+	/**
+	 * Crea la compra.
+	 *
+	 * @param userProduct
+	 * @return userProductDto
+	 */
 	@Override
 	public UserProductDto createUserProduct(UserProductDto userProduct) {
 		ProductModel product = productRepository.findById(userProduct.getProduct().getId()).orElse(null);

@@ -7,13 +7,13 @@ import com.example.demo.model.UserModel;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface UserRepository.
+ * Repositorio de los usuarios.
  */
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Integer>{
 
 	/**
-	 * Find one by email.
+	 * Encuentra el primer usuario con ese email.
 	 *
 	 * @param email the email
 	 * @return the user model

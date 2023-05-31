@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.example.demo.dto.UserProductDto;
 
+
+/**
+ * Interfaz del servicio de UserProduct(Compras)
+ * @author ruben
+ *
+ */
 public interface UserProductService {
 	
 	public List<UserProductDto> getAll();

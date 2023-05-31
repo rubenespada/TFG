@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class DemoApplication {
 
 	/**
-	 * The main method.
+	 * Método main
 	 *
 	 * @param args the arguments
 	 */
@@ -23,7 +23,7 @@ public class DemoApplication {
 	}
 	
 	/**
-	 * Cors configurer.
+	 * Configuración de las políticas de CORS
 	 *
 	 * @return the web mvc configurer
 	 */

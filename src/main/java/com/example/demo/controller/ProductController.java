@@ -29,7 +29,7 @@ public class ProductController {
 	private ProductService productService;
 	
 	/**
-	 * Gets the all.
+	 * Recupera todos los productos.
 	 *
 	 * @return the all
 	 */
@@ -40,7 +40,7 @@ public class ProductController {
 	}
 
 	/**
-	 * Creates the product.
+	 * Crea un producto.
 	 *
 	 * @param product the product
 	 * @return the response entity
@@ -51,12 +51,25 @@ public class ProductController {
 		return ResponseEntity.ok(result);
 	}
 	
+	/**
+	 * Modifica el producto mediante el cuerpo con los nuevos datos y su id para identificarlo
+	 * 
+	 * @param id
+	 * @param product
+	 * @return
+	 */
 	@PutMapping("/product/{id}")
 	public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody ProductDto product){
 		ProductDto result = productService.updateProduct(id,product);
 		return ResponseEntity.ok(result);
 	}
 	
+	/**
+	 * Borrar producto mediante su id
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/product/{id}")
 	public ResponseEntity<?> deleteProduct(@PathVariable Integer id){
 		productService.deleteProduct(id);

@@ -7,13 +7,13 @@ import com.example.demo.model.AccountModel;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface AccountRepository.
+ * Repositorio de las cuentas.
  */
 @Repository
 public interface AccountRepository extends JpaRepository<AccountModel, Integer>{
 
 	/**
-	 * Find by usuario id.
+	 * Encuentra mediante el id del usuario.
 	 *
 	 * @param id the id
 	 * @return the account model

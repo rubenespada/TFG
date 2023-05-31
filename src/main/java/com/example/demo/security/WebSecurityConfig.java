@@ -19,13 +19,27 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import lombok.AllArgsConstructor;
+/**
+ * Clase de configuración de la seguridad en la aplicación
+ * @author ruben
+ *
+ */
 @Configuration
 @AllArgsConstructor
+
 public class WebSecurityConfig {
 	
 	private final UserDetailsService userDetailsService;
 	private final JWTAuthorizationFilter jwtAuthorizationFilter;
 	
+	
+	/**
+	 * Prohibe el acceso a ciertos endpoints de la aplicación sin el token jwt
+	 * @param http
+	 * @param authManager
+	 * @return
+	 * @throws Exception
+	 */
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception {
 		JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
@@ -51,16 +65,7 @@ public class WebSecurityConfig {
 	}
 	
 	
-//	@Bean
-//	UserDetailsService userDetailsService() {
-//		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//		manager.createUser(User.withUsername("admin")
-//				.password(passwordEncoder().encode("admin"))
-//				.roles()
-//				.build());
-//		return manager;
-//	}
-//	
+
 	
 	@Bean
 	AuthenticationManager authManager(HttpSecurity http, PasswordEncoder passwordEncoder) throws Exception {
@@ -77,8 +82,5 @@ public class WebSecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 	
-	public static void main(String[] args) {
-		System.out.println("pass: " + new BCryptPasswordEncoder().encode("Sevilla?23"));
-	}
 
 }

@@ -11,11 +11,31 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
+/**
+ * Clase que construye el token
+ * @author ruben
+ *
+ */
 public class TokenUtils {
 	
+
 	private final static String ACCESS_TOKEN_SECRET = "4quhq8LrEBfYcaRHxhdb9zURb2rf8e7Ud";
+	
+	/**
+	 * Tiempo de expiración del token
+	 */
 	private final static Long ACCES_TOKEN_VALIDITY_SECONDS = 2592000L;
 	
+	
+	
+	/**
+	 * Crea el token y añade los atributos de id, si es admin o no y el nombre completo del usuario
+	 * @param email
+	 * @param id
+	 * @param nombre
+	 * @param rol
+	 * @return
+	 */
 	public static String createToken(String email,Integer id,String nombre, boolean rol) {
 		long expirationTime = ACCES_TOKEN_VALIDITY_SECONDS * 1000;
 		Date expirationDate = new Date(System.currentTimeMillis() + expirationTime);

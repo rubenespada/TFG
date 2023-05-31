@@ -13,15 +13,23 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.AccountService;
 import com.example.demo.util.AccountMapper;
 
+/**
+ * Implementación del servicio de cuentas
+ * @author ruben
+ *
+ */
 @Service
 public class AccountServiceImpl implements AccountService {
 	
+	/** Acceso al bean del repositorio de las cuentas */
 	@Autowired
 	private AccountRepository accountRepository;
 	
+	/** Acceso al bean del mapper de las cuentas */
 	@Autowired
 	private AccountMapper accountMapper;
 	
+	/** Acceso al bean del repositorio de usuarios */
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -37,6 +45,13 @@ public class AccountServiceImpl implements AccountService {
 		return null;
 	}
 
+
+	/**
+	 * Devuelve una cuenta por usuario
+	 * @param userId
+	 * @return
+	 *
+	 */
 	@Override
 	public AccountDto getByUserId(Integer userId) {
 		UserModel user = userRepository.findById(userId).orElse(null);
@@ -54,6 +69,12 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	/**
+	 * Modifica el saldo de la cuenta de un usuario mediante una variable float
+	 *@param userId, saldo
+	 *
+	 */
 
 	@Override
 	public void modifyBalance(Integer userId, Float saldo) {

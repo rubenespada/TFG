@@ -22,6 +22,10 @@ import com.example.demo.service.ImageService;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * @author ruben
+ *
+ */
 @RestController
 @RequestMapping("image")
 @AllArgsConstructor
@@ -32,6 +36,11 @@ public class ImagenController {
 	
 	private final HttpServletRequest request;
 	
+	/**
+	 * Sube una imagen a la carpeta correspondiente
+	 * @param multipartFile
+	 * @return
+	 */
 	@PostMapping("/upload")
 	public Map<String,String> uploadFile(@RequestParam("file") MultipartFile multipartFile){
 		String path = imageService.store(multipartFile);
@@ -40,6 +49,12 @@ public class ImagenController {
 		return Map.of("url",path);
 	}
 	
+	/**
+	 * Recupera una imagen mediante un String con el nombre de la imagen
+	 * @param filename
+	 * @return
+	 * @throws IOException
+	 */
 	@GetMapping("{filename:.+}")
 	public ResponseEntity<?> getFile(@PathVariable String filename) throws IOException{
 		Resource file = imageService.loadAsResource(filename);

@@ -18,6 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.service.ImageService;
 
+/**
+ * Implementación del servicio de imágenes
+ * @author ruben
+ *
+ */
 @Service
 public class ImageServiceImpl implements ImageService {
 	
@@ -35,6 +40,11 @@ public class ImageServiceImpl implements ImageService {
 		Files.createDirectories(rootLocation);
 	}
 
+	/**
+	 * Método para guardar un archivo en la ruta indicada
+	 *@param file
+	 *@return
+	 */
 	@Override
 	public String store(MultipartFile file) {
 		if(file.isEmpty()) {
@@ -50,6 +60,12 @@ public class ImageServiceImpl implements ImageService {
 		}
 	}
 
+	
+	/**
+	 * Devuelve el archivo de la ruta que se pasa por parámetro
+	 *@param filename
+	 *@return
+	 */
 	@Override
 	public Resource loadAsResource(String filename) {
 		try {

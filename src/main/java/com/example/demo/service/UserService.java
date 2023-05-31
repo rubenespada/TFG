@@ -6,6 +6,11 @@ import com.example.demo.dto.AccountDto;
 import com.example.demo.dto.AltaUserDto;
 import com.example.demo.dto.UserDto;
 
+/**
+ * Interfaz del servicio de los usuarios
+ * @author ruben
+ *
+ */
 public interface UserService {
 
 	public UserDto getUserById(Integer id);
