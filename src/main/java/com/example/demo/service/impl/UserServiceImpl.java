@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dto.AccountDto;
 import com.example.demo.dto.AltaUserDto;
 import com.example.demo.dto.UserDto;
+import com.example.demo.exception.EmailInvalidException;
 import com.example.demo.model.AccountModel;
 import com.example.demo.model.UserModel;
 import com.example.demo.repository.AccountRepository;
@@ -47,9 +48,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDto createUser(AltaUserDto user) {
+	public UserDto createUser(AltaUserDto user) throws EmailInvalidException{
+		if(userRepository.findOneByEmail(user.getEmail()) == null) {
 		user.setPassword(encoder.encode(user.getPassword()));
 		return userMapper.toDto(userRepository.save(userMapper.toEntity(user)));
+		}else {
+			throw new EmailInvalidException();
+		}
 	}
 
 	@Override

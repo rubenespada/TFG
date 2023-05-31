@@ -7,17 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.ProductDto;
+import com.example.demo.exception.InvalidDeleteProductException;
 import com.example.demo.model.ProductModel;
 import com.example.demo.repository.ProductRepository;
+import com.example.demo.repository.UserProductRepository;
 import com.example.demo.service.ProductService;
 import com.example.demo.util.ProductMapper;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-	
+
 	@Autowired
 	private ProductRepository productRepository;
-	
+
+	@Autowired
+	private UserProductRepository userProductRepository;
+
 	@Autowired
 	private ProductMapper productMapper;
 
@@ -30,36 +35,38 @@ public class ProductServiceImpl implements ProductService {
 	public ProductDto createProduct(ProductDto product) {
 		return productMapper.toDto(productRepository.save(productMapper.toEntity(product)));
 	}
-	
-	public ProductDto updateProduct(Integer id,ProductDto product) {
+
+	public ProductDto updateProduct(Integer id, ProductDto product) {
 		ProductModel productModel = productRepository.findById(id).orElse(null);
-		if(productModel != null) {
+		if (productModel != null) {
 			productModel.setNombre(product.getNombre());
 			productModel.setDescripcion(product.getDescripcion());
 			productModel.setPrecio(product.getPrecio());
 			productModel.setStock(product.getStock());
-			if(product.getImagen() != null) {
-			productModel.setImagen(product.getImagen());
+			if (product.getImagen() != null) {
+				productModel.setImagen(product.getImagen());
 			}
 			productRepository.save(productModel);
 			return product;
-		}else {
+		} else {
 			return null;
 		}
-		
+
 	}
 
 	@Override
-	public void deleteProduct(Integer id) {
+	public void deleteProduct(Integer id) throws InvalidDeleteProductException{
 		ProductModel productModel = productRepository.findById(id).orElse(null);
-		if(productModel != null) {
-			productRepository.delete(productModel);
-		}else {
-			
+		if (productModel != null) {
+			if (userProductRepository.findByProductId(id).isEmpty()) {
+				productRepository.delete(productModel);
+			} else {
+				throw new InvalidDeleteProductException();
+			}
+		} else {
+
 		}
 
 	}
-
-
 
 }

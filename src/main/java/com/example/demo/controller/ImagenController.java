@@ -44,7 +44,6 @@ public class ImagenController {
 	public ResponseEntity<?> getFile(@PathVariable String filename) throws IOException{
 		Resource file = imageService.loadAsResource(filename);
 		String contentType = Files.probeContentType(file.getFile().toPath());
-		
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, contentType).body(file);
 	}
 	

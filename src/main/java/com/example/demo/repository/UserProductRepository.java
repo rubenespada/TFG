@@ -15,4 +15,6 @@ public interface UserProductRepository extends JpaRepository<UserProductModel,In
 
 	public List<UserProductModel>findByShopUserId(Integer id);
 	
+	public List<UserProductModel>findByProductId(Integer id);
+	
 }

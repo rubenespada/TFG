@@ -60,7 +60,7 @@ public class ProductController {
 	@DeleteMapping("/product/{id}")
 	public ResponseEntity<?> deleteProduct(@PathVariable Integer id){
 		productService.deleteProduct(id);
-		return ResponseEntity.ok("Producto eliminado");
+		return (ResponseEntity<?>) ResponseEntity.noContent();
 	}
 	
 }
