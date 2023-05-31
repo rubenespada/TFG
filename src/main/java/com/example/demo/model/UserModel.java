@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +40,7 @@ public class UserModel {
 	private String apellidos;
 	
 	/** Email del usuario. */
+	@Column(unique = true)
 	private String email;
 	
 	/** Contraseña del usuario. */
