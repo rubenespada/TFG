@@ -20,7 +20,11 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		UserModel usuario = usuarioRepository.findOneByEmail(email);
+		if(usuario !=  null) {
 		return new UserDetailsImpl(usuario); 
+		}else {
+			throw new UsernameNotFoundException(email);
+		}
 	}
 	 
 
