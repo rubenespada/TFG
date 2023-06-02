@@ -13,7 +13,7 @@ import com.example.demo.exception.InvalidDeleteProductException;
 
 /**
  * @author ruben
- * Recoge todas las siguientes excepciones en el momento en el que se lanzan y devuelve un response personalizado dependiendo de la excepción
+ * Recoge todas las siguientes excepciones en el momento en el que se lanzan y devuelve un response personalizado dependiendo de la excepcion
  *
  */
 @ControllerAdvice

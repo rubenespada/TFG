@@ -4,7 +4,7 @@ import lombok.Data;
 
 // TODO: Auto-generated Javadoc
 /**
- * Este Dto servirá para recuperar los datos necesarios para informar al cliente del estado de su cuenta
+ * Este Dto servira para recuperar los datos necesarios para informar al cliente del estado de su cuenta
  */
 @Data
 public class AccountDto {

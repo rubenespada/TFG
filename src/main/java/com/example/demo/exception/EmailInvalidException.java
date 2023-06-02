@@ -3,7 +3,7 @@ package com.example.demo.exception;
 
 
 /**
- * Excepción en caso de que el Email ya exista en el sistema
+ * Excepcion en caso de que el Email ya exista en el sistema
  * @author ruben
  *
  */

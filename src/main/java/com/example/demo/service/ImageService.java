@@ -6,7 +6,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * Interfaz del servicio de imágenes
+ * Interfaz del servicio de imagenes
  * @author ruben
  *
  */

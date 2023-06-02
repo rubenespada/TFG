@@ -49,12 +49,12 @@ public class UserModel {
 	/** Indica si el usuario es admin o no. */
 	private boolean admin;
 	
-    /** The cuenta. */
+    /** Cuenta del usuario. */
     @OneToOne(cascade = CascadeType.ALL ,orphanRemoval = true)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
 	private AccountModel cuenta;
     
-	/** The user product. */
+	/** Las compras del usuario. */
 	@OneToMany(mappedBy="shopUser")
 	@JsonIgnore
 	private List<UserProductModel> userProduct;

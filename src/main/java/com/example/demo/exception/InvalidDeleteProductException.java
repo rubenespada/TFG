@@ -1,7 +1,7 @@
 package com.example.demo.exception;
 
 /**
- * Excepción en caso de que el producto tenga una compra asignada y no se pueda borrar
+ * Excepcion en caso de que el producto tenga una compra asignada y no se pueda borrar
  * @author ruben
  *
  */

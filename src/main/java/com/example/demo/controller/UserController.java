@@ -31,7 +31,7 @@ public class UserController {
 	private UserService userService;
 	
 	/**
-	 * Recupera el usuario meidante el id.
+	 * Recupera el usuario mediante el id.
 	 *
 	 * @param id the id
 	 * @return the user

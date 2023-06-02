@@ -28,12 +28,12 @@ public class UserProductModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	/** Relación con el producto comprado. */
+	/** Relacion con el producto comprado. */
 	@ManyToOne
 	@JoinColumn(name="idProduct" , updatable=false)
 	private ProductModel product;
 	
-	/** Relación con el usuario que ha realizado la compra. */
+	/** Relacion con el usuario que ha realizado la compra. */
 	@ManyToOne
 	@JoinColumn(name="idUser" , updatable=false)
 	private UserModel shopUser;

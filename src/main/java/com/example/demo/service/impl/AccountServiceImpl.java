@@ -14,7 +14,7 @@ import com.example.demo.service.AccountService;
 import com.example.demo.util.AccountMapper;
 
 /**
- * Implementación del servicio de cuentas
+ * Implementacion del servicio de cuentas
  * @author ruben
  *
  */

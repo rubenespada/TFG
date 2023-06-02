@@ -20,7 +20,7 @@ import com.example.demo.util.AccountMapper;
 import com.example.demo.util.UserMapper;
 
 /**
- * Implementación del servicio de usuarios
+ * Implementacion del servicio de usuarios
  * @author ruben
  *
  */

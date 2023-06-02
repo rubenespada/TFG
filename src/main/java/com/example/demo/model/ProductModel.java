@@ -43,7 +43,7 @@ public class ProductModel {
 	
 	private String imagen;
 	
-	/** Relación con UserProductModel (compras). */
+	/** Relacion con UserProductModel (compras). */
 	@OneToMany(mappedBy="product")
 	@JsonIgnore
 	private List<UserProductModel> userProduct;

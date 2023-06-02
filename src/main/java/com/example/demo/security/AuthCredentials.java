@@ -3,7 +3,7 @@ package com.example.demo.security;
 import lombok.Data;
 
 /**
- * Clase para pasar el email y la contraseña para el login
+ * Clase para pasar el email y la password para el login
  */
 @Data
 public class AuthCredentials {

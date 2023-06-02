@@ -13,7 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 
 /**
- * Clase para autorizar cada petición mediante el header de la misma
+ * Clase para autorizar cada peticion mediante el header de la misma
  * @author ruben
  *
  */
@@ -21,7 +21,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 public class JWTAuthorizationFilter extends OncePerRequestFilter{
 
 	/**
-	 * Cuando se envía la petición, el método comprueba que el usuario es logeado mediante el token jwt, que se pasa por la cabecera de la aplicación.
+	 * Cuando se envía la peticion, el metodo comprueba que el usuario es logeado mediante el token jwt, que se pasa por la cabecera de la aplicacion.
 	 *
 	 * @param request the request
 	 * @param response the response

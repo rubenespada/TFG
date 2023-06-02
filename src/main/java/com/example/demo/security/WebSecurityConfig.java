@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import lombok.AllArgsConstructor;
 /**
- * Clase de configuración de la seguridad en la aplicación
+ * Clase de configuracion de la seguridad en la aplicacion
  * @author ruben
  *
  */
@@ -34,7 +34,7 @@ public class WebSecurityConfig {
 	
 	
 	/**
-	 * Prohibe el acceso a ciertos endpoints de la aplicación sin el token jwt
+	 * Prohibe el acceso a ciertos endpoints de la aplicacion sin el token jwt
 	 * @param http
 	 * @param authManager
 	 * @return
@@ -77,11 +77,20 @@ public class WebSecurityConfig {
 	}
 	
 	
+	/**
+	 * Bean para codificar la password.
+	 * @return the password encoder
+	 */
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
+	/**
+	 * Metodo para probar el encoder.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		System.out.println("pass: " + new BCryptPasswordEncoder().encode("admin"));
 	}

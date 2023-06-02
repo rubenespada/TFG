@@ -22,7 +22,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
 	
 	/**
-	 *Este método comprueba que el login sea correcto
+	 *Este metodo comprueba que el login sea correcto
 	 */
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
 
@@ -44,7 +44,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	
 
 	/**
-	 *Una vez el login sea correcto, este método se encarga de reenviar de vuelta el token de acceso para las peticiones de la aplicación.
+	 *Una vez el login sea correcto, este metodo se encarga de reenviar de vuelta el token de acceso para las peticiones de la aplicacion.
 	 */
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authResult) throws IOException, ServletException {

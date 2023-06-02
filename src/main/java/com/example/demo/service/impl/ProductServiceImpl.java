@@ -15,7 +15,7 @@ import com.example.demo.service.ProductService;
 import com.example.demo.util.ProductMapper;
 
 /**
- * Implementación del servicio de productos.
+ * Implementacion del servicio de productos.
  */
 @Service
 public class ProductServiceImpl implements ProductService {

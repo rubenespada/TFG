@@ -22,14 +22,14 @@ public class TokenUtils {
 	private final static String ACCESS_TOKEN_SECRET = "4quhq8LrEBfYcaRHxhdb9zURb2rf8e7Ud";
 	
 	/**
-	 * Tiempo de expiración del token
+	 * Tiempo de expiracion del token
 	 */
 	private final static Long ACCES_TOKEN_VALIDITY_SECONDS = 2592000L;
 	
 	
 	
 	/**
-	 * Crea el token y añade los atributos de id, si es admin o no y el nombre completo del usuario
+	 * Crea el token e introduce los atributos de id, si es admin o no y el nombre completo del usuario
 	 * @param email
 	 * @param id
 	 * @param nombre

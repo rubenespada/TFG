@@ -2,7 +2,7 @@ package com.example.demo.exception;
 
 
 /**
- * Excepción en caso de que el login no sea válido
+ * Excepcion en caso de que el login no sea valido
  * @author ruben
  *
  */

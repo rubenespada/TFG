@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.service.ImageService;
 
 /**
- * Implementación del servicio de imágenes
+ * Implementacion del servicio de imagenes
  * @author ruben
  *
  */
@@ -41,7 +41,7 @@ public class ImageServiceImpl implements ImageService {
 	}
 
 	/**
-	 * Método para guardar un archivo en la ruta indicada
+	 * Metodo para guardar un archivo en la ruta indicada
 	 *@param file
 	 *@return
 	 */
@@ -62,7 +62,7 @@ public class ImageServiceImpl implements ImageService {
 
 	
 	/**
-	 * Devuelve el archivo de la ruta que se pasa por parámetro
+	 * Devuelve el archivo de la ruta que se pasa por parametro
 	 *@param filename
 	 *@return
 	 */

@@ -21,7 +21,7 @@ import com.example.demo.util.UserProductMapper;
 
 // TODO: Auto-generated Javadoc
 /**
- * Implementación del servicio de userProduct.
+ * Implementacion del servicio de userProduct.
  */
 @Service
 public class UserProductServiceImpl implements UserProductService {

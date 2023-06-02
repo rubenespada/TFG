@@ -21,10 +21,10 @@ public class AltaUserDto {
 	/** Email del usuario. */
 	private String email;
 	
-	/** Contraseña del usuario. */
+	/** Password del usuario. */
 	private String password;
 	
-	/** Indica si el usuario es administrador de la aplicación. */
+	/** Indica si el usuario es administrador de la aplicacion. */
 	private boolean admin;
 
 
